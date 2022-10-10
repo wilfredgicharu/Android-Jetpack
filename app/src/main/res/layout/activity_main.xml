@@ -7,90 +7,85 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:padding="10dp"
-        android:hint="num 1"
-        app:layout_constraintEnd_toStartOf="@id/plus"
-        android:id="@+id/number1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-    <TextView
-        android:id="@+id/plus"
-        android:layout_margin="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:padding="10dp"
-        app:layout_constraintStart_toEndOf="@+id/number1"
-        app:layout_constraintEnd_toStartOf="@id/number2"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-    <Button
-        android:id="@+id/equals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="="
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/number2"/>
-    <EditText
-        android:hint="num 2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
+        android:id="@+id/editInput"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="50dp"
         android:ems="10"
-        android:padding="10dp"
-        app:layout_constraintStart_toEndOf="@id/plus"
-        android:id="@+id/number2"
+        android:textSize="20sp"
+        android:inputType="number"
+        android:hint="Input numbers"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/summation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="50sp"
-        app:layout_constraintTop_toBottomOf="@id/plus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-         />
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/textResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Increment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/buttonDescrement"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-    <Button
-        android:id="@+id/buttonDescrement"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Descrement"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        android:textStyle="bold"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/editInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/button"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonPlus"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="48dp"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:text="Plus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editInput" />
+
+    <Button
+        android:id="@+id/buttonMinus"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:text="Minus"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/buttonPlus"
+        app:layout_constraintTop_toBottomOf="@+id/editInput" />
+
+    <Button
+        android:id="@+id/buttonTimes"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Times"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/buttonPlus"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPlus" />
+
+    <Button
+        android:id="@+id/buttonDivide"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Divide"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/buttonMinus"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMinus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
