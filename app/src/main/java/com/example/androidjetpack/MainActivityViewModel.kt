@@ -3,43 +3,24 @@ package com.example.androidjetpack
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.android.volley.RequestQueue
 
-class MainActivityViewModel(startingTitle: String, startingResult: Int): ViewModel() {
-
-    private var title = MutableLiveData<String>()
-    private var result = MutableLiveData<Int>()
-
-    val readTitle: LiveData<String> get() = title
-    val readResult: LiveData<Int> get() = result
+class MainActivityViewModel(var mRequestQueue: RequestQueue): ViewModel() {
+    var localPosts = MutableLiveData<ArrayList<Post>>()
+    var onlinePosts = MutableLiveData<ArrayList<Post>>()
+    var mainRepository = MainRepository(mRequestQueue)
 
     init {
-        title.value = startingTitle
-        result.value = startingResult
+        localPosts.value = MainRepository(mRequestQueue).getData() //get data from local
+        MainRepository(mRequestQueue).fetchOnlineData() //get data from online
+        onlinePosts = mainRepository.posts
     }
 
-    fun setPlus(input: Int){
-        result.value = result.value?.plus(input)
-    }
-    fun setMinus(input: Int){
-        result.value = result.value?.minus(input)
-    }
+    //Notes
+    //LiveData is an observable data holder class
+    //LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services
+    //RequestQueue is a class that handles asynchronous HTTP requests on Volley
+    //MutableLiveData is a subclass of LiveData
 
-    fun setTime(input: Int){
-        result.value = result.value?.times(input)
-    }
-    fun setDivide(input: Int){
-        result.value = result.value?.div(input)
-    }
 
-//    var count = 0
-//
-//    fun increment(){
-//        count++
-//    }
-//    fun decrement(){
-//        count--
-//    }
-//    fun add(){
-//    }
-//
 }
