@@ -6,86 +6,88 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        app:layout_constraintBottom_toBottomOf="@id/etName"
+        app:layout_constraintTop_toTopOf="@id/etName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/etName"
+        android:id="@+id/tvNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="18sp" />
+
     <EditText
-        android:id="@+id/editInput"
-        android:layout_width="320dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="50dp"
-        android:ems="10"
-        android:textSize="20sp"
-        android:inputType="number"
-        android:hint="Input numbers"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvNameLabel"
+        android:id="@+id/etName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name" />
+
+
+
+    <TextView
+        app:layout_constraintEnd_toStartOf="@id/etEmailId"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/etEmailId"
+        app:layout_constraintTop_toTopOf="@id/etEmailId"
+        android:id="@+id/tvEmailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email ID"
+        android:textSize="18sp" />
+
+    <EditText
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etName"
+        app:layout_constraintStart_toEndOf="@id/tvEmailLabel"
+        android:id="@+id/etEmailId"
+        android:layout_width="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="Enter Email ID" />
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/etEmailId"
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD RECORD" />
+
+
+    <TextView
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/btnAdd"
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="All the inserted records."
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        android:id="@+id/rvItemsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvNoRecordsAvailable"
+        android:layout_width="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textResult"
-        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btnAdd"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:textStyle="bold"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/editInput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textResult"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/buttonPlus"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="48dp"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:text="Plus"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editInput" />
-
-    <Button
-        android:id="@+id/buttonMinus"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="20dp"
-        android:text="Minus"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/buttonPlus"
-        app:layout_constraintTop_toBottomOf="@+id/editInput" />
-
-    <Button
-        android:id="@+id/buttonTimes"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Times"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/buttonPlus"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPlus" />
-
-    <Button
-        android:id="@+id/buttonDivide"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Divide"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/buttonMinus"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMinus" />
+        android:gravity="center"
+        android:text="No records available!!!"
+        android:textSize="18sp"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
