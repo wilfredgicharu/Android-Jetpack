@@ -1,13 +1,17 @@
 package com.example.androidjetpack
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.*
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.Volley
 import com.example.androidjetpack.databinding.ActivityMainBinding
+import com.google.android.material.R
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
+import java.nio.file.attribute.AclEntry.Builder
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,27 +24,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val employeeDao = (application as EmployeeAp).db.employeeDao()
-        binding.btnAdd.setOnClickListener {
-            addRecord(employeeDao)
-        }
-
-        lifecycleScope.launch {
-            employeeDao.fetchAllEmployee().collect {
-                val list = ArrayList(it)
-                setupListOfDataIntoRecyclerView(list,employeeDao)
-            }
-        }
     }
 
 
 
-    private fun setupListOfDataIntoRecyclerView(employeeList: Any, employeeDao: EmployeeDao) {
 
-    }
-
-
-    private fun addRecord(employeeDao: EmployeeDao) {
-
-    }
 }
