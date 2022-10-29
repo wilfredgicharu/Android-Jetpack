@@ -6,20 +6,20 @@ import com.example.androidjetpack.Model.Note
 
 @Dao
 interface NoteDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(note: Note)
 
     @Query("SELECT * FROM note ORDER BY id DESC")
-    fun getCardsData(): LiveData<List<Note>>
+    fun getCardsData():LiveData<List<Note>>
 
     @Update
-    suspend fun update(note: Note)
+    suspend fun update (note:Note)
 
     @Query("SELECT * FROM note WHERE data LIKE :data")
-    fun search(data: String): LiveData<List<Note>>
+    fun search(data:String):LiveData<List<Note>>
 
     @Delete
-    suspend fun delete(note: Note)
-
+    suspend fun delete(note:Note)
 
 }
